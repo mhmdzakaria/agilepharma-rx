@@ -1,0 +1,128 @@
+<div class="login-page-wrapper min-h-screen w-full grid grid-cols-1 lg:grid-cols-12">
+
+    <!-- LEFT SIDE -->
+    <div class="login-left-panel relative col-span-5 lg:col-span-6 w-full h-full">
+
+        <img src="assets/images/loginBG.svg"
+             class="login-left-background absolute inset-0 w-full h-full object-cover"
+             alt="background image">
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="login-right-panel col-span-7 lg:col-span-6 bg-white w-full h-full flex items-center justify-center">
+
+        <div class="login-form-wrapper w-full max-w-md px-10">
+
+            <!-- LOGO -->
+            <div class="login-logo-container flex justify-center mb-10">
+                <img class="login-logo w-64 h-auto" src="assets/images/loginLogo.svg" alt="AgileRx Logo">
+            </div>
+
+            <!-- FORM -->
+            <form class="login-form space-y-6" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+
+                <!-- USERNAME FIELD (Icon + Placeholder inside) -->
+                <div class="login-username-field">
+
+                    <div class="login-select-wrapper relative">
+
+                        <!-- LEFT ICON -->
+                        <span class="login-input-left-icon absolute left-4 top-1/2 -translate-y-1/2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="#4B5563" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="7" r="4"></circle>
+                                <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
+                            </svg>
+                        </span>
+
+                        <!-- SELECT -->
+                        <select
+                            formControlName="username"
+                            class="login-select w-full border border-gray-300 rounded-lg
+                                   pl-12 pr-10 py-3 bg-white text-gray-700
+                                   focus:outline-none focus:ring-2 focus:ring-teal-500 appearance-none">
+                            <option value="">User name</option>
+                            <option value="admin">Admin</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="pharmacist">Pharmacist</option>
+                        </select>
+
+                        <!-- RIGHT ARROW -->
+                        <span class="login-select-icon pointer-events-none absolute right-4 top-1/2 -translate-y-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.29a.75.75 0 01-.02-1.08z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].invalid"
+                         class="text-xs text-red-600 mt-1">
+                        Username is required.
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD FIELD (Icon + Placeholder inside) -->
+                <div class="login-password-field">
+
+                    <div class="login-password-wrapper relative">
+
+                        <!-- LEFT ICON -->
+                        <span class="login-password-left-icon absolute left-4 top-1/2 -translate-y-1/2">
+                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.4167 9.08333C17.4167 13.6858 13.6858 17.4167 9.08333 17.4167C4.48083 17.4167 0.75 13.6858 0.75 9.08333C0.75 4.48083 4.48083 0.75 9.08333 0.75C13.6858 0.75 17.4167 4.48083 17.4167 9.08333Z"
+                                      stroke="#4B5563" stroke-width="1.5" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                <path d="M9.08317 9.91665C9.5252 9.91665 9.94912 9.74105 10.2617 9.42849C10.5742 9.11593 10.7498 8.69201 10.7498 8.24998C10.7498 7.80795 10.5742 7.38403 10.2617 7.07147C9.94912 6.75891 9.5252 6.58331 9.08317 6.58331C8.64114 6.58331 8.21722 6.75891 7.90466 7.07147C7.5921 7.38403 7.4165 7.80795 7.4165 8.24998C7.4165 8.69201 7.5921 9.11593 7.90466 9.42849C8.21722 9.74105 8.64114 9.91665 9.08317 9.91665ZM9.08317 9.91665V12.4166"
+                                      stroke="#4B5563" stroke-width="1.5" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                            </svg>
+                        </span>
+
+                        <!-- PASSWORD INPUT -->
+                        <input
+                            formControlName="password"
+                            type="password"
+                            class="login-password-input w-full border border-gray-300 rounded-lg
+                                   pl-12 pr-12 py-3 bg-white text-gray-700
+                                   focus:outline-none focus:ring-2 focus:ring-teal-500"
+                            placeholder="Password">
+
+                        <!-- EYE ICON RIGHT (optional) -->
+                        <span class="login-password-right-icon absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
+                            <!-- keep your eye icon -->
+                        </span>
+
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid"
+                         class="text-xs text-red-600 mt-1">
+                        Password is required.
+                    </div>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+                <button type="submit"
+                        class="login-button w-full bg-teal-500 text-white px-4 py-3 
+                        rounded-lg text-sm font-medium hover:bg-teal-600 transition">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
