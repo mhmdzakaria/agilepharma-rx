@@ -4,17 +4,8 @@
 
 .login-left-panel {
   position: relative;
-}
-
-.login-left-background {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-.login-right-panel {
-  border-top-right-radius: 40px;
-  border-bottom-right-radius: 40px;
 }
 
 .login-logo {
@@ -47,36 +38,35 @@
 }
 
 .login-select {
-    width: 100%;
-    padding: 14px 42px 14px 48px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: white;
-    font-family: Inter;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0;
-    color: #555C60;
-    appearance: none;
+  width: 100%;
+  padding: 14px 42px 14px 48px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #555C60;
+  appearance: none;
 }
 
 .login-password-input {
-    width: 100%;
-    padding: 14px 42px 14px 48px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: white;
-    font-family: Inter;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0;
-    color: #555C60;
+  width: 100%;
+  padding: 14px 42px 14px 48px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #555C60;
 }
-
 
 .login-username-error,
 .login-password-error {
@@ -99,4 +89,63 @@
 
 .login-button:hover {
   background-color: #10836d;
+}
+
+.login-welcome-card {
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 24px 36px;
+  border-radius: 30px 0 30px 0;
+  min-width: 406px;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-welcome-title {
+  font-family: Inter;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+.login-welcome-subtitle {
+  font-family: Inter;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.login-dots-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.login-dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.45;
+}
+
+.login-dot.active {
+  opacity: 1;
+}
+
+@media (max-width: 1023px) {
+  .login-form-wrapper {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .login-welcome-card {
+    min-width: 300px;
+    padding: 20px 24px;
+  }
 }
